@@ -1,4 +1,8 @@
+/**
+ * @format
+ */
+
 import { registerRootComponent } from 'expo';
-import MyRootComponent from './src/screens/login';   
+import MyRootComponent from './src/routes';   
 
 registerRootComponent(MyRootComponent);

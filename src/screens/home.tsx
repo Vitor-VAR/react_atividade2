@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 
-//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 minha url
+
 interface IUser {
   avatar_url: string;
   name: string;
@@ -39,11 +39,11 @@ const Home = () => {
 
   const URL = 'https://api.github.com';
   useEffect(() => {
-    // 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
+    
     fetch(`${URL}/user`, {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer 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',
+        Authorization: 'Bearer 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',
       },
     })
       .then(response => response.json())
@@ -60,10 +60,10 @@ const Home = () => {
   });
 
   useEffect(() => {
-    fetch(`${URL}/users/matos-claudio/repos`, {
+    fetch(`${URL}/users/Vitor-VAR/repos`, {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer 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',
+        Authorization: 'Bearer ghp_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',
       },
     })
       .then(response => response.json())

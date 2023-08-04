@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 const Login = () => {
     const {navigate} = useNavigation();
 
-    const [usuario, setUsuarior] = useState<String>('');
+    const [usuario, setUsuario] = useState<String>('');
     const [senha, setSenha] = useState<String>('');
 
     const login = () => {

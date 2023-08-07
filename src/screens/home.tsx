@@ -11,6 +11,9 @@ import {
   View,
 } from 'react-native';
 
+import { useNavigation } from "@react-navigation/native";
+
+
 
 interface IUser {
   avatar_url: string;
@@ -32,7 +35,11 @@ interface IData {
   language: string;
 }
 
+
 const Home = () => {
+
+  const {navigate} = useNavigation();
+
   const [user, setUser] = useState<IUser>();
   const [listRpos, setListRepos] = useState<IData[]>([]);
   //   const [isLoading, setIsLoading] = useState<Boolean>(true);
@@ -43,12 +50,12 @@ const Home = () => {
     fetch(`${URL}/user`, {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer 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',
+        Authorization: 'Bearer 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',
       },
     })
       .then(response => response.json())
       .then(json => {
-        // console.log(`RESPOSTA: ${JSON.stringify(json)}`);
+        console.log(`RESPOSTA: ${JSON.stringify(json)}`);
         setUser(json);
       })
       .catch(e => {
@@ -63,7 +70,7 @@ const Home = () => {
     fetch(`${URL}/users/Vitor-VAR/repos`, {
       method: 'GET',
       headers: {
-        Authorization: 'Bearer ghp_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',
+        Authorization: 'Bearer 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',
       },
     })
       .then(response => response.json())
@@ -86,7 +93,7 @@ const Home = () => {
       <FlatList
         data={listRpos}
         renderItem={({item, index}) => (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigate('Following')} >
             <View
               key={index}
               style={{backgroundColor: '#FFF', marginTop: 8, padding: 8}}>
@@ -97,9 +104,9 @@ const Home = () => {
         )}
         keyExtractor={item => item.id}
         // ListHeaderComponent={
-        //   <View style={{padding: 8}}>
-        //     <Text style={{fontWeight: 'bold', fontSize: 16}}>Repositórios</Text>
-        //   </View>
+          // <View style={{padding: 8}}>
+             //<Text style={{fontWeight: 'bold', fontSize: 16}}>Repositórios</Text>
+          //</View>
         // }
         ListEmptyComponent={<ActivityIndicator size={'large'} color={'red'} />}
       />
